@@ -4,6 +4,8 @@ A one-page portfolio for Ome Aiman Rasheed, Digital Growth Manager and AI Automa
 
 Plain HTML, CSS and JavaScript in one file. No build step, no framework, no chart library, no cookies and no trackers. The only outside request is the Inter font from Google Fonts.
 
+Interactive parts, all in the same file: headline numbers count up when they scroll into view (skipped for visitors who prefer reduced motion); the trend charts switch between Weekly, Monthly and Since start views, with a tooltip on every bar and point; a light and dark theme toggle that follows the system setting until a visitor picks one (remembered in the browser); and a sticky "Hire me, book a free website review" button that opens a prefilled email.
+
 ## Files
 
 | File | What it is |
@@ -23,4 +25,4 @@ Upload all files to a public repository named `<username>.github.io`, then turn 
 Every number is typed in by hand from a dated report. Update both places:
 
 1. The static text and tables in `index.html` (stat cards, Then vs Now tables, case studies).
-2. The chart data at the top of the `<script>` block: `WEEKLY`, `TRACKER`, `MONTHLY` and `SPEED`.
+2. The chart data at the top of the `<script>` block: `WEEKLY`, `TRACKER`, `MONTHLY`, `SINCE` (baseline vs now, copied from the Then vs Now tables) and `SPEED`.

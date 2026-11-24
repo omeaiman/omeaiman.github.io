@@ -7,7 +7,15 @@
 <meta name="description" content="Portfolio of Ome Aiman Rasheed, Digital Growth Manager and AI Automation Engineer. Dated Search Console, Semrush and Lighthouse results for two US technology companies (an AI sales platform and a software company), case studies and the AI automations behind them.">
 <meta name="author" content="Ome Aiman Rasheed">
 <meta name="theme-color" content="#0f766e">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
+<script>
+/* Apply a saved theme before first paint; without one, the system setting decides. */
+(function(){
+  var d = document.documentElement;
+  d.classList.add("js");
+  try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") d.setAttribute("data-theme", t); } catch (e) {}
+})();
+</script>
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Ome Aiman Rasheed | Digital Growth and AI Automation">
 <meta property="og:description" content="SEO, AEO and AI automation with dated proof: AI sales platform (US) Google impressions 12,146 to 71,241 in a month; software company (US) median mobile LCP 14.0 s to 2.8 s.">
@@ -91,15 +99,57 @@
   --accent:#0f766e;
   --accent-strong:#0b5d57;
   --accent-soft:#e3f2ef;
+  --accent-fill:#0f766e;
+  --accent-fill-hover:#0b5d57;
   --sag:#2a78d6;
   --sth:#eb6834;
   --before:#b8bdc6;
   --up:#006300;
   --down:#b42318;
+  --soft:#f7f8fa;
+  --chart-soft:#fafbfc;
+  --chip:#f0f2f5;
+  --seg:#e9ecf0;
+  --hover:#e9ecef;
+  --line-strong:#d4d8de;
+  --past:#aab1bd;
+  --header-bg:rgba(245,246,248,.88);
+  --notice-bg:#e3f2ef;
+  --notice-line:#c5e4df;
+  --notice-ink:#0c3f3b;
+  --tip-bg:#11151b;
+  --tip-ink:#ffffff;
+  --tip-sub:#c9ced6;
+  --badge-ink:#7a4a00;
+  --badge-bg:#fff3d6;
+  --badge-line:#f3dca2;
   --radius:16px;
   --shadow:0 1px 2px rgba(14,17,22,.04),0 4px 18px rgba(14,17,22,.05);
   --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color-scheme:light;
+}
+/* Dark theme: follows the system unless the visitor picked light, or picked dark with the toggle */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1016;--surface:#141a22;--ink:#e7ebf0;--ink-2:#b4bcc8;--muted:#8b95a4;--line:#252d38;--grid:#1f2630;--axis:#3a4350;
+    --accent:#4fd1c0;--accent-strong:#7fe0d4;--accent-soft:#0f2b28;--accent-fill:#0f766e;--accent-fill-hover:#13897f;
+    --sag:#4b94ec;--sth:#f0784a;--before:#596273;--up:#3fb950;--down:#ff7b72;
+    --soft:#19202a;--chart-soft:#11171e;--chip:#1d2530;--seg:#1d2530;--hover:#1d2530;--line-strong:#323c49;--past:#4a5361;
+    --header-bg:rgba(12,16,22,.86);--notice-bg:#0f2b28;--notice-line:#1d4943;--notice-ink:#c2ebe4;
+    --tip-bg:#e7ebf0;--tip-ink:#0c1016;--tip-sub:#4a5260;--badge-ink:#f5d08a;--badge-bg:#2e2410;--badge-line:#5a4618;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 20px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1016;--surface:#141a22;--ink:#e7ebf0;--ink-2:#b4bcc8;--muted:#8b95a4;--line:#252d38;--grid:#1f2630;--axis:#3a4350;
+  --accent:#4fd1c0;--accent-strong:#7fe0d4;--accent-soft:#0f2b28;--accent-fill:#0f766e;--accent-fill-hover:#13897f;
+  --sag:#4b94ec;--sth:#f0784a;--before:#596273;--up:#3fb950;--down:#ff7b72;
+  --soft:#19202a;--chart-soft:#11171e;--chip:#1d2530;--seg:#1d2530;--hover:#1d2530;--line-strong:#323c49;--past:#4a5361;
+  --header-bg:rgba(12,16,22,.86);--notice-bg:#0f2b28;--notice-line:#1d4943;--notice-ink:#c2ebe4;
+  --tip-bg:#e7ebf0;--tip-ink:#0c1016;--tip-sub:#4a5260;--badge-ink:#f5d08a;--badge-bg:#2e2410;--badge-line:#5a4618;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 20px rgba(0,0,0,.25);
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -116,23 +166,30 @@ a:hover{color:var(--accent-strong)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* Header */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(245,246,248,.88);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.site-header{position:sticky;top:0;z-index:50;background:var(--header-bg);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
 .site-header .wrap{display:flex;align-items:center;gap:16px;height:60px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
-.brand-mark{width:30px;height:30px;border-radius:9px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:800;letter-spacing:-.04em}
+.brand-mark{width:30px;height:30px;border-radius:9px;background:var(--accent-fill);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:800;letter-spacing:-.04em}
 .nav{display:none;margin-left:auto;gap:4px}
 .nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:500;padding:6px 10px;border-radius:8px}
-.nav a:hover{background:#e9ecef;color:var(--ink)}
-.header-cta{margin-left:auto}
-@media (min-width:980px){.nav{display:flex}.header-cta{margin-left:8px}}
+.nav a:hover{background:var(--hover);color:var(--ink)}
+.header-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+@media (min-width:980px){.nav{display:flex}.header-actions{margin-left:8px}}
+.theme-toggle{display:inline-grid;place-items:center;flex:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;padding:0}
+.theme-toggle:hover{border-color:var(--line-strong)}
+.theme-toggle svg{width:18px;height:18px}
+.theme-toggle .i-sun{display:none}
+:root[data-theme="dark"] .theme-toggle .i-sun{display:block}
+:root[data-theme="dark"] .theme-toggle .i-moon{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme-toggle .i-sun{display:block}:root:not([data-theme="light"]) .theme-toggle .i-moon{display:none}}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
 .btn svg{width:18px;height:18px;flex:none}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:var(--accent-strong);color:#fff}
+.btn-primary{background:var(--accent-fill);color:#fff}
+.btn-primary:hover{background:var(--accent-fill-hover);color:#fff}
 .btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
-.btn-ghost:hover{border-color:#c7ccd4;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--line-strong);color:var(--ink)}
 .btn-sm{min-height:38px;padding:7px 14px;font-size:14px;border-radius:10px}
 
 /* Hero */
@@ -151,12 +208,13 @@ a:hover{color:var(--accent-strong)}
 .now-role{font-size:1.15rem;font-weight:700;letter-spacing:-.01em;margin:0}
 .now-org{margin:4px 0 16px;color:var(--ink-2);font-size:15px}
 .now-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-.now-list li{display:flex;gap:10px;font-size:15px;color:var(--ink-2)}
-.now-list li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:6px;background:var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%230f766e' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.now-list li{display:flex;gap:10px;font-size:15px;color:var(--ink-2);position:relative}
+.now-list li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:6px;background:var(--accent-soft)}
+.now-list li::after{content:"";position:absolute;left:6.5px;top:6.5px;width:4.5px;height:8.5px;border:solid var(--accent);border-width:0 2.2px 2.2px 0;transform:rotate(45deg)}
 .company-line{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
 
 /* Tags */
-.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ink-2);background:#f0f2f5;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ink-2);background:var(--chip);border-radius:999px;padding:3px 10px;white-space:nowrap}
 .tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted)}
 .tag.sag::before{background:var(--sag)}
 .tag.sth::before{background:var(--sth)}
@@ -177,14 +235,14 @@ section{scroll-margin-top:72px}
 .stats{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
 .stat .tag{align-self:flex-start;margin-bottom:6px}
-.stat-value{font-size:clamp(2rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.stat-value{font-size:clamp(2rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
 .stat-label{font-weight:600;font-size:15px;line-height:1.35}
 .stat-delta{font-size:14px;color:var(--ink-2)}
 .stat-delta b{color:var(--up);font-weight:700}
 .stat .src{margin-top:auto;padding-top:10px}
 
 /* Notice */
-.notice{display:flex;gap:12px;align-items:flex-start;background:var(--accent-soft);border:1px solid #c5e4df;color:#0c3f3b;border-radius:14px;padding:14px 16px;font-size:15px;margin-bottom:26px}
+.notice{display:flex;gap:12px;align-items:flex-start;background:var(--notice-bg);border:1px solid var(--notice-line);color:var(--notice-ink);border-radius:14px;padding:14px 16px;font-size:15px;margin-bottom:26px}
 .notice svg{flex:none;width:20px;height:20px;margin-top:2px}
 
 /* Comparison tables */
@@ -195,7 +253,7 @@ section{scroll-margin-top:72px}
 .cmp-sub{color:var(--muted);font-size:14px;margin:0 0 16px}
 table.cmp{width:100%;border-collapse:collapse;font-size:14.5px}
 .cmp th,.cmp td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-.cmp thead th{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid #d4d8de;line-height:1.35}
+.cmp thead th{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line-strong);line-height:1.35}
 .cmp thead th small{display:block;text-transform:none;letter-spacing:0;font-weight:500}
 .cmp td.num,.cmp th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .cmp td.now{font-weight:700}
@@ -207,7 +265,7 @@ table.cmp{width:100%;border-collapse:collapse;font-size:14.5px}
 .d-up{color:var(--up);font-weight:700}
 .d-down{color:var(--down);font-weight:700}
 .d-flat{color:var(--ink-2);font-weight:600}
-.honest{margin:16px 0 0;padding:14px 16px;background:#f7f8fa;border-radius:12px;font-size:14.5px;color:var(--ink-2)}
+.honest{margin:16px 0 0;padding:14px 16px;background:var(--soft);border-radius:12px;font-size:14.5px;color:var(--ink-2)}
 .honest b{color:var(--ink)}
 .footnote{font-size:13px;color:var(--muted);margin:10px 0 0}
 .cmp-block{overflow-x:auto}
@@ -229,11 +287,12 @@ table.cmp{width:100%;border-collapse:collapse;font-size:14.5px}
 .chart-block-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 20px;margin-bottom:14px}
 .chart-block-head h3{font-size:1.25rem;margin:0 0 4px;letter-spacing:-.015em}
 .chart-block-head p{margin:0;color:var(--ink-2);font-size:15px;max-width:62ch}
-.seg{display:inline-flex;background:#e9ecf0;border-radius:11px;padding:3px;gap:2px}
+.seg{display:inline-flex;flex-wrap:wrap;max-width:100%;background:var(--seg);border-radius:11px;padding:3px;gap:2px}
 .seg button{font:inherit;font-size:14px;font-weight:600;color:var(--ink-2);background:transparent;border:0;border-radius:9px;padding:7px 13px;min-height:36px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(14,17,22,.12)}
 .chart-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
 .chart-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px 14px;box-shadow:var(--shadow);min-width:0;margin:0}
+.chart-card.flat{box-shadow:none;background:var(--chart-soft)}
 .chart-card figcaption{display:block}
 .chart-card .c-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;margin:0 0 2px}
 .chart-card .c-title .key{width:14px;height:10px;border-radius:3px;flex:none}
@@ -242,14 +301,16 @@ table.cmp{width:100%;border-collapse:collapse;font-size:14.5px}
 .chart svg{overflow:visible;font-family:var(--font)}
 .chart .tick{font-size:11px;fill:var(--muted);font-variant-numeric:tabular-nums}
 .chart .vlabel{font-size:12px;font-weight:700;fill:var(--ink);font-variant-numeric:tabular-nums}
+.chart .rowlab{font-size:12px;font-weight:600;fill:var(--ink-2)}
+.chart .goodlab{font-size:11px;font-weight:700;fill:var(--accent)}
 .chart .bar{cursor:pointer;outline:none}
 .chart .bar:hover,.chart .bar:focus{filter:brightness(1.12)}
 .chart .bar:focus-visible{stroke:var(--ink);stroke-width:2}
-.tip{position:absolute;pointer-events:none;background:#11151b;color:#fff;border-radius:10px;padding:8px 11px;font-size:13px;line-height:1.35;box-shadow:0 6px 20px rgba(0,0,0,.18);opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s;white-space:nowrap;z-index:5}
+.tip{position:absolute;pointer-events:none;background:var(--tip-bg);color:var(--tip-ink);border-radius:10px;padding:8px 11px;font-size:13px;line-height:1.35;box-shadow:0 6px 20px rgba(0,0,0,.18);opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s;white-space:nowrap;z-index:5}
 .tip.show{opacity:1;transform:none}
 .tip .tv{font-weight:700;font-size:15px;display:flex;align-items:center;gap:7px}
 .tip .tv i{display:inline-block;width:12px;height:3px;border-radius:2px}
-.tip .tl{color:#c9ced6;font-size:12px}
+.tip .tl{color:var(--tip-sub);font-size:12px}
 .chart-note{font-size:13px;color:var(--muted);margin:10px 0 0}
 details.data{margin-top:10px;font-size:13.5px}
 details.data summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:13.5px;padding:4px 0;list-style:none;display:inline-flex;align-items:center;gap:6px}
@@ -277,7 +338,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 .case ul.did{margin:0 0 18px;padding-left:20px;color:var(--ink-2)}
 .case ul.did li{margin:4px 0}
 .minis{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));margin:0 0 12px}
-.mini{background:#f7f8fa;border-radius:12px;padding:12px 14px}
+.mini{background:var(--soft);border-radius:12px;padding:12px 14px}
 .mini b{display:block;font-size:1.25rem;letter-spacing:-.02em;line-height:1.2}
 .mini span{display:block;font-size:13px;color:var(--ink-2);line-height:1.35;margin-top:2px}
 .case .src{margin-top:auto}
@@ -288,7 +349,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 .steps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));counter-reset:step;list-style:none;padding:0;margin:0}
 .steps li{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative}
 .alt .steps li{background:var(--bg)}
-.steps li::before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--accent);color:#fff;font-weight:800;margin-bottom:12px}
+.steps li::before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--accent-fill);color:#fff;font-weight:800;margin-bottom:12px}
 .steps h3{margin:0 0 6px;font-size:1.1rem}
 .steps p{margin:0;color:var(--ink-2);font-size:15px}
 
@@ -298,7 +359,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 .timeline li{position:relative;padding:0 0 26px 34px}
 .timeline li:last-child{padding-bottom:0}
 .timeline li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--surface);border:3px solid var(--accent)}
-.timeline li.past::before{border-color:#aab1bd}
+.timeline li.past::before{border-color:var(--past)}
 .t-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px}
 .t-role{font-weight:700;font-size:1.05rem;margin:0}
 .t-dates{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -323,7 +384,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 .edu-item h3{margin:0 0 4px;font-size:1.05rem;line-height:1.35}
 .edu-item .t-dates{display:block;margin-bottom:8px}
 .edu-item p{margin:0;color:var(--ink-2);font-size:15px}
-.badge{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#7a4a00;background:#fff3d6;border:1px solid #f3dca2;border-radius:999px;padding:3px 10px;margin-bottom:10px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--badge-ink);background:var(--badge-bg);border:1px solid var(--badge-line);border-radius:999px;padding:3px 10px;margin-bottom:10px}
 .cert-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .cert-list li{font-size:15px;color:var(--ink-2);padding-left:16px;position:relative}
 .cert-list li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
@@ -348,8 +409,47 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 .site-footer li{margin:3px 0}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:18px;margin-top:22px}
 
+/* Trend views (Weekly, Monthly, Since start) */
+.view-bar{display:none;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:0 0 26px}
+.js .view-bar{display:flex}
+.view-tabs{display:inline-flex;gap:4px;padding:4px;border-radius:14px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);max-width:100%}
+.view-tabs button{font:inherit;font-size:15px;font-weight:700;color:var(--ink-2);background:transparent;border:0;border-radius:10px;padding:9px 18px;min-height:42px;cursor:pointer;white-space:nowrap}
+.view-tabs button:hover{color:var(--ink);background:var(--hover)}
+.view-tabs button[aria-selected="true"]{background:var(--accent-fill);color:#fff}
+.view-hint{margin:0;color:var(--muted);font-size:14px}
+.view.is-in{animation:viewIn .28s ease-out both}
+@keyframes viewIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.since-delta{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:0 0 4px;min-height:34px}
+.since-delta b{font-size:1.55rem;letter-spacing:-.02em;line-height:1.2}
+.since-delta span{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.nodata{display:flex;align-items:center;justify-content:center;min-height:200px;padding:20px;border:1px dashed var(--line-strong);border-radius:12px;background:var(--soft);color:var(--ink-2);font-size:14.5px;text-align:center;line-height:1.5}
+.nodata b{color:var(--ink)}
+.chart .pt{stroke-width:2}
+@media (max-width:420px){.view-tabs button{padding:9px 13px;font-size:14px}}
+
+/* Sticky hire-me button */
+.fab{position:fixed;right:16px;bottom:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;display:inline-flex;align-items:center;gap:10px;padding:8px 18px 8px 8px;border-radius:999px;background:var(--accent-fill);color:#fff;text-decoration:none;box-shadow:0 10px 30px rgba(15,118,110,.35),0 2px 6px rgba(0,0,0,.18);transition:opacity .22s,transform .22s,visibility 0s 0s,background .15s}
+.fab:hover,.fab:focus-visible{background:var(--accent-fill-hover);color:#fff}
+.fab:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.fab-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);flex:none}
+.fab-icon svg{width:19px;height:19px}
+.fab-k{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;line-height:1.25}
+.fab-m{display:block;font-size:15px;font-weight:700;line-height:1.25}
+.fab.is-hidden{opacity:0;visibility:hidden;transform:translateY(16px);pointer-events:none;transition:opacity .22s,transform .22s,visibility 0s .22s}
+@media (max-width:719px){
+  .site-footer{padding-bottom:110px}
+  .fab{right:12px;bottom:12px;bottom:calc(12px + env(safe-area-inset-bottom));gap:8px;padding:6px 14px 6px 6px}
+  .fab-icon{width:32px;height:32px}
+  .fab-icon svg{width:16px;height:16px}
+  .fab-k{font-size:10px}
+  .fab-m{font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){.fab,.fab.is-hidden{transition:none}.view.is-in{animation:none}}
+
 @media print{
-  .site-header,.seg,.cta-row,.contact-actions{display:none}
+  .site-header,.seg,.cta-row,.contact-actions,.fab,.view-bar{display:none}
+  .view[hidden]{display:block!important}
+  :root:root:root{--bg:#fff;--surface:#fff;--ink:#0e1116;--ink-2:#3f4652;--muted:#5f6776;--line:#e3e6eb;--soft:#f7f8fa;--chip:#f0f2f5;color-scheme:light}
   body{background:#fff}
   .stat,.cmp-block,.chart-card,.case,.panel,.edu-item{box-shadow:none;break-inside:avoid}
 }
@@ -369,7 +469,13 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-primary btn-sm header-cta" href="Ome-Aiman-Rasheed-Resume.pdf" download>Resume</a>
+    <div class="header-actions">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Dark theme" aria-pressed="false" title="Switch between light and dark theme">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm header-cta" href="Ome-Aiman-Rasheed-Resume.pdf" download>Resume</a>
+    </div>
   </div>
 </header>
 
@@ -445,7 +551,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       </article>
       <article class="stat">
         <span class="tag sag">AI sales platform (US)</span>
-        <div class="stat-value">7.8</div>
+        <div class="stat-value" data-from="18.9">7.8</div>
         <div class="stat-label">Google position for a competitor comparison page</div>
         <div class="stat-delta">from 18.9; a second competitor comparison page moved from 24.2 to 8.0</div>
         <span class="src">Google Search Console, 28 days to 20 Oct vs 28 days to 22 Nov 2026</span>
@@ -459,7 +565,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       </article>
       <article class="stat">
         <span class="tag sth">Software company (US)</span>
-        <div class="stat-value">2.8 s</div>
+        <div class="stat-value" data-from="14.0">2.8 s</div>
         <div class="stat-label">median mobile load time (LCP) across 267 pages</div>
         <div class="stat-delta"><b>80.0% lower</b>, from 14.0 s</div>
         <span class="src">Lighthouse 13.5.0, every sitemap page, 25 Sep vs 2 Oct 2026</span>
@@ -791,10 +897,20 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
   <div class="wrap">
     <div class="section-head">
       <p class="kicker">Trends</p>
-      <h2>Week by week, and month by month</h2>
-      <p>Hover or tap any bar or point for its exact window and value. Each chart has a "Show the numbers" table underneath.</p>
+      <h2>Week by week, month by month, and since the start</h2>
+      <p>Pick a view, then hover, tap or tab to any bar or point for its exact value and date. Each chart has a "Show the numbers" table underneath.</p>
     </div>
 
+    <div class="view-bar">
+      <div class="view-tabs" role="tablist" aria-label="Trend view">
+        <button type="button" role="tab" id="tab-weekly" aria-controls="view-weekly" aria-selected="true">Weekly</button>
+        <button type="button" role="tab" id="tab-monthly" aria-controls="view-monthly" aria-selected="false" tabindex="-1">Monthly</button>
+        <button type="button" role="tab" id="tab-since" aria-controls="view-since" aria-selected="false" tabindex="-1">Since start</button>
+      </div>
+      <p class="view-hint" id="view-hint" aria-live="polite">Seven-day windows and the Monday keyword tracker.</p>
+    </div>
+
+    <div class="view" id="view-weekly" role="tabpanel" aria-labelledby="tab-weekly">
     <div class="chart-block">
       <div class="chart-block-head">
         <div>
@@ -847,7 +963,9 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       </div>
       <p class="chart-note">Source: Google Search Console through each company's weekly keyword tracker (ledger of totals), runs from 2 or 3 Oct to 23 Nov 2026. There was no run on 16 Nov, so points are placed by date. Each point covers the full window ending shortly before its run date, so neighbouring points overlap. On the position view, higher on the chart means a better rank.</p>
     </div>
+    </div>
 
+    <div class="view" id="view-monthly" role="tabpanel" aria-labelledby="tab-monthly">
     <div class="chart-block">
       <div class="chart-block-head">
         <div>
@@ -874,8 +992,43 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       </div>
       <p class="chart-note">Source: Google Search Console, read 24 Sep, 21 Oct, 4 Nov and 23 Nov 2026. Windows: baseline 28 days to 23 Sep; Day 30, 23 Sep to 20 Oct; Day 45, 7 Oct to 3 Nov; Day 60, 26 Oct to 22 Nov. The software company baseline impressions leave out one automated bot query (19,063 impressions; 68,703 as logged).</p>
     </div>
+    </div>
+
+    <div class="view" id="view-since" role="tabpanel" aria-labelledby="tab-since">
+    <div class="chart-block">
+      <div class="chart-block-head">
+        <div>
+          <h3>Since tracking began</h3>
+          <p>The first reading against now, for the same measures as the Then vs Now tables. Baseline: 28 days to 23 Sep 2026. Now: 26 Oct to 22 Nov 2026.</p>
+        </div>
+        <div class="seg" role="group" aria-label="Since start metric" data-group="since">
+          <button type="button" data-metric="impressions" aria-pressed="true">Impressions</button>
+          <button type="button" data-metric="clicks" aria-pressed="false">Clicks</button>
+          <button type="button" data-metric="top10" aria-pressed="false">Top-10</button>
+          <button type="button" data-metric="top3" aria-pressed="false">Top-3</button>
+          <button type="button" data-metric="position" aria-pressed="false">Avg position</button>
+        </div>
+      </div>
+      <div class="chart-grid">
+        <figure class="chart-card">
+          <figcaption><p class="c-title"><i class="key" style="background:var(--sag)"></i>AI sales platform (US)</p><p class="c-sub" data-sub="since-sag">Google impressions, 28 days</p></figcaption>
+          <p class="since-delta" data-delta="since-sag"></p>
+          <div class="chart" id="ch-since-sag"></div>
+          <details class="data"><summary>Show the numbers</summary><div class="tbl-wrap" data-table="since-sag"></div></details>
+        </figure>
+        <figure class="chart-card">
+          <figcaption><p class="c-title"><i class="key" style="background:var(--sth)"></i>Software company (US)</p><p class="c-sub" data-sub="since-sth">Google impressions, 28 days</p></figcaption>
+          <p class="since-delta" data-delta="since-sth"></p>
+          <div class="chart" id="ch-since-sth"></div>
+          <details class="data"><summary>Show the numbers</summary><div class="tbl-wrap" data-table="since-sth"></div></details>
+        </figure>
+      </div>
+      <p class="chart-note">Source: Google Search Console, read 24 Sep and 23 Nov 2026; top-10 and top-3 counts use queries with 3+ impressions. Grey bar: baseline. Coloured bar: now. The software company baseline impressions leave out one automated bot query (19,063 impressions; 68,703 as logged). For average position, lower is better.</p>
+    </div>
+    </div>
   </div>
 </section>
+
 
 <!-- CASE STUDIES -->
 <section class="section alt" id="case-studies">
@@ -916,7 +1069,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
         <h3>A 273-page site from 14 seconds to under 3 on a phone</h3>
         <p>On the company's WordPress site, the main content took a median 14.0 s to appear on a phone, and every page downloaded about 60 stylesheets before it could show anything.</p>
         <div class="speed-wrap">
-          <figure class="chart-card" style="box-shadow:none;background:#fafbfc">
+          <figure class="chart-card flat">
             <figcaption><p class="c-title">Median Largest Contentful Paint (LCP), seconds</p><p class="c-sub">Lower is better. Google's "good" line is 2.5 s.</p></figcaption>
             <ul class="legend" aria-hidden="true"><li><i style="background:var(--before)"></i>Before, 25 Sep</li><li><i style="background:var(--sth)"></i>After, 2 Oct</li></ul>
             <div class="chart" id="ch-speed" style="min-height:170px"></div>
@@ -1199,12 +1352,26 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
   </div>
 </footer>
 
+<a class="fab" id="fab" href="mailto:aiman.rasheed71@gmail.com?subject=Free%20website%20review%20request&amp;body=Hi%20Ome%2C%0A%0AI%20would%20like%20a%20free%20website%20review.%0A%0AMy%20website%20URL%3A%20%0A%0AWhat%20I%20would%20like%20to%20improve%20%28search%2C%20AI%20answers%2C%20page%20speed%20or%20something%20else%29%3A%20%0A%0AThank%20you%2C%0A" aria-label="Hire me: book a free website review by email">
+  <span class="fab-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg></span>
+  <span><span class="fab-k">Hire me</span><span class="fab-m">Book a free website review</span></span>
+</a>
+
 <script>
 (function(){
   "use strict";
 
   /* ---------- Data: every value is copied from a dated report ---------- */
-  var COLORS = { sag: "#2a78d6", sth: "#eb6834", before: "#b8bdc6" };
+  /* Chart colours come from the theme tokens in the stylesheet, so light and dark both work */
+  var COLORS = {};
+  function cssVar(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+  function readPalette(){
+    COLORS = {
+      sag: cssVar("--sag"), sth: cssVar("--sth"), before: cssVar("--before"),
+      grid: cssVar("--grid"), axis: cssVar("--axis"), surface: cssVar("--surface"),
+      muted: cssVar("--muted"), accent: cssVar("--accent")
+    };
+  }
 
   var WEEKLY = {
     labels: ["23 Sep","30 Sep","7 Oct","14 Oct","21 Oct","28 Oct","5 Nov","12 Nov"],
@@ -1244,8 +1411,26 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
     { label: "Desktop, 268 pages", before: 4.5, after: 1.7 }
   ];
 
+  /* Since start: baseline (28 days to 23 Sep, read 24 Sep) vs now (26 Oct to 22 Nov, read 23 Nov),
+     copied from the Then vs Now tables. null = no baseline reading, shown as a note instead of a chart. */
+  var SINCE = {
+    labels: ["Baseline", "Now"],
+    full: ["Baseline: 28 days to 23 Sep 2026, read 24 Sep", "Now: 26 Oct to 22 Nov 2026, read 23 Nov"],
+    impressions: { name: "Google impressions, 28 days", unit: "impressions",
+      sag: { v: [3360, 71241], d: "+2,020%", up: true }, sth: { v: [49640, 78268], d: "+57.6%", up: true } },
+    clicks: { name: "Google clicks, 28 days", unit: "clicks",
+      sag: { v: [26, 82], d: "+215%", up: true }, sth: { v: [96, 160], d: "+66.6%", up: true } },
+    top10: { name: "Queries in Google's top 10", unit: "queries",
+      sag: { v: [11, 712], d: "+6,372%", up: true }, sth: { v: [263, 682], d: "+159%", up: true } },
+    top3: { name: "Queries in Google's top 3", unit: "queries",
+      sag: { v: [3, 57], d: "+1,800%", up: true }, sth: { v: [16, 86], d: "+437%", up: true } },
+    position: { name: "Average Google position, 28 days (lower is better)", unit: "", dec: 1,
+      sag: null, sagNote: "Average position was not recorded at the 24 Sep read, so there is no baseline to compare. It was about 20.4 at Day 30 and is 13.2 now.",
+      sth: { v: [12.9, 16.8], d: "3.9 places lower", up: false } }
+  };
+
   var METRIC_NAMES = {
-    clicks: "Google clicks", impressions: "Google impressions", position: "Average position", top10: "Queries in the top 10"
+    clicks: "Google clicks", impressions: "Google impressions", position: "Average position", top10: "Queries in the top 10", top3: "Queries in the top 3"
   };
 
   /* ---------- Helpers ---------- */
@@ -1343,21 +1528,24 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
     var g = svgEl("g", { transform: "translate(" + m.l + "," + m.t + ")" }, svg);
     ticks.forEach(function(tv){
       var y = ph - (tv / top) * ph;
-      svgEl("line", { x1: 0, x2: pw, y1: y, y2: y, stroke: tv === 0 ? "#c9cdd4" : "#eceef2", "stroke-width": 1, "shape-rendering": "crispEdges" }, g);
+      svgEl("line", { x1: 0, x2: pw, y1: y, y2: y, stroke: tv === 0 ? COLORS.axis : COLORS.grid, "stroke-width": 1, "shape-rendering": "crispEdges" }, g);
       var tx = svgEl("text", { x: -8, y: y + 4, "text-anchor": "end", "class": "tick" }, g); tx.textContent = tickFmt(tv);
     });
-    var n = opt.values.length, band = pw / n, bw = Math.min(24, band * 0.62);
+    var n = opt.values.length, band = pw / n, bw = Math.min(opt.maxBar || 24, band * 0.62);
     var maxI = opt.values.indexOf(max);
     var skip = band < 38 ? 2 : 1;
     var tip = makeTip(host);
     opt.values.forEach(function(v, i){
       var h = (v / top) * ph, x = i * band + (band - bw) / 2, y = ph - h;
+      var col = opt.colors ? opt.colors[i] : opt.color;
+      var unit = opt.unit ? " " + opt.unit : "";
       var hit = svgEl("rect", { x: i * band, y: 0, width: band, height: ph, fill: "transparent" }, g);
-      var p = svgEl("path", { d: barPath(x, y, bw, h, 4), fill: opt.color, "class": "bar", tabindex: 0, role: "img",
-        "aria-label": opt.full[i] + ": " + fmt(v) + " " + opt.unit }, g);
-      function on(){ showTip(host, tip, m.l + x + bw / 2, m.t + y, opt.color, fmt(v) + " " + opt.unit, opt.full[i]); }
+      var p = svgEl("path", { d: barPath(x, y, bw, h, opt.maxBar ? 6 : 4), fill: col, "class": "bar", tabindex: 0, role: "img",
+        "aria-label": opt.full[i] + ": " + fmt(v) + unit }, g);
+      function on(){ showTip(host, tip, m.l + x + bw / 2, m.t + y, col, fmt(v) + unit, opt.full[i]); }
       [p, hit].forEach(function(el){
         el.addEventListener("pointerenter", on);
+        el.addEventListener("pointerdown", on);
         el.addEventListener("pointerleave", function(){ hideTip(tip); });
       });
       p.addEventListener("focus", on); p.addEventListener("blur", function(){ hideTip(tip); });
@@ -1395,7 +1583,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
     var g = svgEl("g", { transform: "translate(" + m.l + "," + m.t + ")" }, svg);
     ticks.forEach(function(tv){
       var y = yOf(tv);
-      svgEl("line", { x1: 0, x2: pw, y1: y, y2: y, stroke: (!opt.invert && tv === 0) ? "#c9cdd4" : "#eceef2", "stroke-width": 1, "shape-rendering": "crispEdges" }, g);
+      svgEl("line", { x1: 0, x2: pw, y1: y, y2: y, stroke: (!opt.invert && tv === 0) ? COLORS.axis : COLORS.grid, "stroke-width": 1, "shape-rendering": "crispEdges" }, g);
       var tx = svgEl("text", { x: -8, y: y + 4, "text-anchor": "end", "class": "tick" }, g); tx.textContent = tickFmt(tv);
     });
     var pts = vals.map(function(v, i){ return [xOf(i), yOf(v)]; });
@@ -1421,9 +1609,10 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       var tx = svgEl("text", { x: p[0], y: ph + 18, "text-anchor": anchor, "class": "tick" }, g); tx.textContent = opt.labels[i];
       if (i !== 0 && i !== last) lastRight = s[1];
     });
-    var cross = svgEl("line", { x1: 0, x2: 0, y1: 0, y2: ph, stroke: "#9aa1ad", "stroke-width": 1, opacity: 0 }, g);
-    var dot = svgEl("circle", { r: 5, fill: opt.color, stroke: "#fff", "stroke-width": 2, opacity: 0 }, g);
-    svgEl("circle", { cx: pts[last][0], cy: pts[last][1], r: 4.5, fill: opt.color, stroke: "#fff", "stroke-width": 2 }, g);
+    pts.forEach(function(p){ svgEl("circle", { cx: p[0], cy: p[1], r: 3, fill: COLORS.surface, stroke: opt.color, "class": "pt" }, g); });
+    var cross = svgEl("line", { x1: 0, x2: 0, y1: 0, y2: ph, stroke: COLORS.muted, "stroke-width": 1, opacity: 0 }, g);
+    var dot = svgEl("circle", { r: 5.5, fill: opt.color, stroke: COLORS.surface, "stroke-width": 2, opacity: 0 }, g);
+    svgEl("circle", { cx: pts[last][0], cy: pts[last][1], r: 4.5, fill: opt.color, stroke: COLORS.surface, "stroke-width": 2 }, g);
     var vf = function(v){ return opt.dec ? v.toFixed(opt.dec) : fmt(v); };
     var el = svgEl("text", { x: pts[last][0] - 8, y: pts[last][1] + (opt.invert ? 20 : -10), "text-anchor": "end", "class": "vlabel" }, g);
     el.textContent = vf(vals[last]);
@@ -1438,13 +1627,15 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
     }
     function hide(){ cross.setAttribute("opacity", 0); dot.setAttribute("opacity", 0); hideTip(tip); }
     var overlay = svgEl("rect", { x: 0, y: 0, width: pw, height: ph, fill: "transparent" }, g);
-    overlay.addEventListener("pointermove", function(ev){
+    function nearest(ev){
       var rect = svg.getBoundingClientRect();
       var x = ev.clientX - rect.left - m.l;
       var best = 0, bd = Infinity;
       pts.forEach(function(p, i){ var dd = Math.abs(p[0] - x); if (dd < bd) { bd = dd; best = i; } });
       show(best);
-    });
+    }
+    overlay.addEventListener("pointermove", nearest);
+    overlay.addEventListener("pointerdown", nearest);
     overlay.addEventListener("pointerleave", hide);
     svg.addEventListener("focus", function(){ show(cur); });
     svg.addEventListener("blur", hide);
@@ -1469,30 +1660,30 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
     var ph = SPEED.length * rowH;
     [0, 5, 10, 15].forEach(function(tv){
       var x = (tv / top) * pw;
-      svgEl("line", { x1: x, x2: x, y1: 0, y2: ph, stroke: tv === 0 ? "#c9cdd4" : "#eceef2", "stroke-width": 1, "shape-rendering": "crispEdges" }, g);
+      svgEl("line", { x1: x, x2: x, y1: 0, y2: ph, stroke: tv === 0 ? COLORS.axis : COLORS.grid, "stroke-width": 1, "shape-rendering": "crispEdges" }, g);
       var t = svgEl("text", { x: x, y: ph + 16, "text-anchor": tv === 0 ? "start" : "middle", "class": "tick" }, g); t.textContent = tv + " s";
     });
     var tip = makeTip(host);
     SPEED.forEach(function(r, i){
       var y0 = i * rowH;
-      var lab = svgEl("text", { x: 0, y: y0 + 12, "class": "tick", style: "font-size:12px;fill:#3f4652;font-weight:600" }, g); lab.textContent = r.label;
+      var lab = svgEl("text", { x: 0, y: y0 + 12, "class": "rowlab" }, g); lab.textContent = r.label;
       [["before", COLORS.before, "Before, 25 Sep"], ["after", COLORS.sth, "After, 2 Oct"]].forEach(function(s, j){
         var v = r[s[0]], w = (v / top) * pw, y = y0 + 18 + j * 16, h = 14;
         var p = svgEl("path", { d: hBarPath(0, y, w, h, 4), fill: s[1], "class": "bar", tabindex: 0, role: "img", "aria-label": r.label + ", " + s[2] + ": " + v.toFixed(1) + " s" }, g);
         var vl = svgEl("text", { x: w + 6, y: y + 11, "class": "vlabel" }, g); vl.textContent = v.toFixed(1) + " s";
         function on(){ showTip(host, tip, w / 2, y + m.t, s[1], v.toFixed(1) + " s", r.label + ", " + s[2]); }
-        p.addEventListener("pointerenter", on); p.addEventListener("focus", on);
+        p.addEventListener("pointerenter", on); p.addEventListener("pointerdown", on); p.addEventListener("focus", on);
         p.addEventListener("pointerleave", function(){ hideTip(tip); }); p.addEventListener("blur", function(){ hideTip(tip); });
       });
     });
     var gx = (2.5 / top) * pw;
-    svgEl("line", { x1: gx, x2: gx, y1: -6, y2: ph, stroke: "#0f766e", "stroke-width": 1.5 }, g);
-    var gl = svgEl("text", { x: gx + 5, y: -10, "class": "tick", style: "fill:#0f766e;font-weight:700" }, g); gl.textContent = "2.5 s, Google's good line";
+    svgEl("line", { x1: gx, x2: gx, y1: -6, y2: ph, stroke: COLORS.accent, "stroke-width": 1.5 }, g);
+    var gl = svgEl("text", { x: gx + 5, y: -10, "class": "goodlab" }, g); gl.textContent = "2.5 s, Google's good line";
     host.insertBefore(svg, host.firstChild);
   }
 
   /* ---------- Render controllers ---------- */
-  var state = { weekly: "clicks", tracker: "impressions", monthly: "impressions" };
+  var state = { weekly: "clicks", tracker: "impressions", monthly: "impressions", since: "impressions" };
   var NAMES = { sag: "AI sales platform", sth: "Software company" };
 
   function renderWeekly(){
@@ -1557,7 +1748,45 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       SPEED.map(function(r){ return [r.label, r.before.toFixed(1) + " s", r.after.toFixed(1) + " s"]; }));
   }
 
-  function renderAll(){ renderWeekly(); renderTracker(); renderMonthly(); renderSpeed(); }
+  function noData(host, html){
+    host.textContent = "";
+    var d = document.createElement("div"); d.className = "nodata"; d.innerHTML = html;
+    host.appendChild(d);
+  }
+
+  function renderSince(){
+    var metric = state.since, spec = SINCE[metric];
+    ["sag", "sth"].forEach(function(co){
+      var host = document.getElementById("ch-since-" + co);
+      var sub = document.querySelector('[data-sub="since-' + co + '"]');
+      var delta = document.querySelector('[data-delta="since-' + co + '"]');
+      if (sub) sub.textContent = spec.name;
+      var r = spec[co];
+      var vf = function(v){ return spec.dec ? v.toFixed(spec.dec) : fmt(v); };
+      delta.textContent = "";
+      if (!r) {
+        noData(host, "<p><b>No baseline for this view.</b><br>" + spec[co + "Note"] + "</p>");
+        var nb = document.createElement("span"); nb.textContent = "No baseline reading"; delta.appendChild(nb);
+        fillTable("since-" + co, ["Reading", "Value"], [["Baseline, 24 Sep 2026", "Not recorded"], ["Now, 23 Nov 2026", "See note"]]);
+        return;
+      }
+      var b = document.createElement("b"); b.className = r.up ? "d-up" : "d-down"; b.textContent = r.d;
+      var sp = document.createElement("span"); sp.textContent = vf(r.v[0]) + " \u2192 " + vf(r.v[1]) + " since 24 Sep";
+      delta.appendChild(b); delta.appendChild(sp);
+      columnChart(host, {
+        values: r.v, labels: SINCE.labels, full: SINCE.full,
+        colors: [COLORS.before, COLORS[co]], color: COLORS[co], unit: spec.unit, labelAll: true, maxBar: 72, height: 220,
+        aria: NAMES[co] + " " + spec.name.toLowerCase() + ": baseline " + vf(r.v[0]) + ", now " + vf(r.v[1]) + ", " + r.d
+      });
+      fillTable("since-" + co, ["Reading", "Window (2026)", "Value"], [
+        ["Baseline", "28 days to 23 Sep, read 24 Sep", vf(r.v[0])],
+        ["Now", "26 Oct to 22 Nov, read 23 Nov", vf(r.v[1])],
+        ["Change", "Since start", r.d]
+      ]);
+    });
+  }
+
+  function renderAll(){ readPalette(); renderWeekly(); renderTracker(); renderMonthly(); renderSince(); renderSpeed(); }
 
   document.querySelectorAll(".seg").forEach(function(group){
     var name = group.getAttribute("data-group");
@@ -1569,7 +1798,49 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       if (name === "weekly") renderWeekly();
       if (name === "tracker") renderTracker();
       if (name === "monthly") renderMonthly();
+      if (name === "since") renderSince();
     });
+  });
+
+  var reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+  /* ---------- Trend views: Weekly, Monthly, Since start ---------- */
+  var HINTS = {
+    weekly: "Seven-day windows and the Monday keyword tracker.",
+    monthly: "28-day totals at the baseline and each checkpoint.",
+    since: "The first reading against now."
+  };
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.view-tabs [role="tab"]'));
+  function selectView(tab, focus){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute("aria-controls"));
+      if (!panel) return;
+      panel.hidden = !on;
+      panel.classList.toggle("is-in", on);
+    });
+    var key = tab.id.replace("tab-", "");
+    var hint = document.getElementById("view-hint");
+    if (hint) hint.textContent = HINTS[key] || "";
+    if (focus) tab.focus();
+    renderAll();
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener("click", function(){ selectView(t, false); });
+    t.addEventListener("keydown", function(ev){
+      var j = null;
+      if (ev.key === "ArrowRight") j = (i + 1) % tabs.length;
+      if (ev.key === "ArrowLeft") j = (i - 1 + tabs.length) % tabs.length;
+      if (ev.key === "Home") j = 0;
+      if (ev.key === "End") j = tabs.length - 1;
+      if (j !== null) { ev.preventDefault(); selectView(tabs[j], true); }
+    });
+  });
+  tabs.forEach(function(t){
+    var panel = document.getElementById(t.getAttribute("aria-controls"));
+    if (panel) panel.hidden = t.getAttribute("aria-selected") !== "true";
   });
 
   renderAll();
@@ -1579,6 +1850,104 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
     lastW = window.innerWidth;
     clearTimeout(rt); rt = setTimeout(renderAll, 120);
   });
+
+  /* Print every view at full width */
+  window.addEventListener("beforeprint", function(){
+    document.querySelectorAll(".view").forEach(function(v){ v.dataset.wasHidden = v.hidden ? "1" : ""; v.hidden = false; });
+    renderAll();
+  });
+  window.addEventListener("afterprint", function(){
+    document.querySelectorAll(".view").forEach(function(v){ v.hidden = v.dataset.wasHidden === "1"; });
+    renderAll();
+  });
+
+  /* ---------- Headline stats count up when they scroll into view ---------- */
+  (function(){
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+    var items = [];
+    document.querySelectorAll(".stat-value").forEach(function(el){
+      var text = el.textContent.trim();
+      var m = text.match(/^([^0-9]*)([0-9][0-9,]*(?:\.[0-9]+)?)(.*)$/);
+      if (!m) return;
+      var num = m[2], target = parseFloat(num.replace(/,/g, ""));
+      var c = {
+        el: el, text: text, prefix: m[1], suffix: m[3], target: target,
+        dec: (num.split(".")[1] || "").length, comma: num.indexOf(",") > -1,
+        from: el.hasAttribute("data-from") ? parseFloat(el.getAttribute("data-from")) : 0
+      };
+      el.textContent = "";
+      var sr = document.createElement("span"); sr.className = "sr-only"; sr.textContent = text;
+      c.vis = document.createElement("span"); c.vis.setAttribute("aria-hidden", "true");
+      el.appendChild(sr); el.appendChild(c.vis);
+      c.vis.textContent = format(c, c.from);
+      el._count = c;
+      items.push(c);
+    });
+    function format(c, v){
+      var s = v.toFixed(c.dec);
+      if (c.comma) { var parts = s.split("."); parts[0] = Number(parts[0]).toLocaleString("en-US"); s = parts.join("."); }
+      return c.prefix + s + c.suffix;
+    }
+    function run(c){
+      var dur = 1400, t0 = null;
+      function step(ts){
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        c.vis.textContent = p < 1 ? format(c, c.from + (c.target - c.from) * e) : c.text;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    function finishAll(){ items.forEach(function(c){ c.vis.textContent = c.text; }); }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        run(en.target._count);
+      });
+    }, { threshold: 0.4 });
+    items.forEach(function(c){ io.observe(c.el); });
+    window.addEventListener("beforeprint", finishAll);
+  })();
+
+  /* ---------- Light and dark theme ---------- */
+  (function(){
+    var root = document.documentElement;
+    var btn = document.getElementById("theme-toggle");
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function current(){ var t = root.getAttribute("data-theme"); return t || (mq && mq.matches ? "dark" : "light"); }
+    function sync(){
+      var dark = current() === "dark";
+      if (btn) { btn.setAttribute("aria-pressed", dark ? "true" : "false"); btn.title = dark ? "Switch to light theme" : "Switch to dark theme"; }
+    }
+    if (btn) btn.addEventListener("click", function(){
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      sync(); renderAll();
+    });
+    if (mq) {
+      var onChange = function(){ if (!root.getAttribute("data-theme")) { sync(); renderAll(); } };
+      if (mq.addEventListener) mq.addEventListener("change", onChange); else if (mq.addListener) mq.addListener(onChange);
+    }
+    sync();
+  })();
+
+  /* ---------- Sticky hire-me button: hidden over the hero and the contact section ---------- */
+  (function(){
+    var fab = document.getElementById("fab");
+    if (!fab || !("IntersectionObserver" in window)) return;
+    var hero = document.getElementById("top"), contact = document.getElementById("contact");
+    var seen = { top: true, contact: false };
+    function update(){ fab.classList.toggle("is-hidden", seen.top || seen.contact); }
+    fab.classList.add("is-hidden");
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ seen[en.target.id] = en.isIntersecting; });
+      update();
+    }, { threshold: 0.15 });
+    if (hero) io.observe(hero);
+    if (contact) io.observe(contact);
+  })();
 })();
 </script>
 </body>
