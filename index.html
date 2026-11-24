@@ -171,10 +171,10 @@ a:hover{color:var(--accent-strong)}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
 .brand-mark{width:30px;height:30px;border-radius:9px;background:var(--accent-fill);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:800;letter-spacing:-.04em}
 .nav{display:none;margin-left:auto;gap:4px}
-.nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:500;padding:6px 10px;border-radius:8px}
+.nav a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:500;padding:6px 10px;border-radius:8px;white-space:nowrap}
 .nav a:hover{background:var(--hover);color:var(--ink)}
 .header-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
-@media (min-width:980px){.nav{display:flex}.header-actions{margin-left:8px}}
+@media (min-width:1080px){.nav{display:flex}.header-actions{margin-left:8px}}
 .theme-toggle{display:inline-grid;place-items:center;flex:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;padding:0}
 .theme-toggle:hover{border-color:var(--line-strong)}
 .theme-toggle svg{width:18px;height:18px}
@@ -263,8 +263,6 @@ table.cmp{width:100%;border-collapse:collapse;font-size:14.5px}
 .cmp .na{color:var(--muted);font-weight:400}
 .cmp .when{display:block;font-size:12px;color:var(--muted);font-weight:400}
 .d-up{color:var(--up);font-weight:700}
-.d-down{color:var(--down);font-weight:700}
-.d-flat{color:var(--ink-2);font-weight:600}
 .honest{margin:16px 0 0;padding:14px 16px;background:var(--soft);border-radius:12px;font-size:14.5px;color:var(--ink-2)}
 .honest b{color:var(--ink)}
 .footnote{font-size:13px;color:var(--muted);margin:10px 0 0}
@@ -465,6 +463,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       <a href="#results">Results</a>
       <a href="#then-vs-now">Then vs Now</a>
       <a href="#trends">Trends</a>
+      <a href="#backlinks">Backlinks</a>
       <a href="#case-studies">Case studies</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
@@ -567,7 +566,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
         <span class="tag sth">Software company (US)</span>
         <div class="stat-value" data-from="14.0">2.8 s</div>
         <div class="stat-label">median mobile load time (LCP) across 267 pages</div>
-        <div class="stat-delta"><b>80.0% lower</b>, from 14.0 s</div>
+        <div class="stat-delta"><b>80.0% less load time</b>, from 14.0 s</div>
         <span class="src">Lighthouse 13.5.0, every sitemap page, 25 Sep vs 2 Oct 2026</span>
       </article>
       <article class="stat">
@@ -666,7 +665,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
             <td class="num" data-label="Since start"><span class="d-up">+1,800%</span></td>
           </tr>
           <tr>
-            <td class="metric">Average Google position, 28 days<span class="src">Google Search Console, lower is better</span></td>
+            <td class="metric">Average Google position, 28 days<span class="src">Google Search Console; 1 is the top result</span></td>
             <td class="num na" data-label="Start, 24 Sep">Not recorded</td>
             <td class="num" data-label="1 month ago">about 20.4</td>
             <td class="num now" data-label="Now, 23 Nov">13.2</td>
@@ -716,15 +715,15 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
           <tr>
             <td class="metric">Buyer questions where AI assistants cite the platform (of 20)<span class="src">ChatGPT, Perplexity, Gemini and Copilot tests, pooled over 28 days</span></td>
             <td class="num" data-label="Start, 24 Sep">2<span class="when">25 Sep</span></td>
-            <td class="num" data-label="1 month ago">4<span class="when">23 Oct</span></td>
+            <td class="num na" data-label="1 month ago">Not compared</td>
             <td class="num now" data-label="Now, 23 Nov">4<span class="when">pool to 18 Nov</span></td>
-            <td class="num" data-label="vs 1 month ago"><span class="d-flat">No change</span></td>
+            <td class="num na" data-label="vs 1 month ago">Not compared</td>
             <td class="num" data-label="Since start"><span class="d-up">+100%</span></td>
           </tr>
         </tbody>
       </table>
-      <p class="honest"><b>Honest read:</b> about 433 of the 712 top-10 queries are US area-code lookups. They add reach but few clicks, so clicks per impression fell from 0.25% to 0.12% over the same month. The next step is turning the buyer pages already on page one into clicks.</p>
-      <p class="footnote">Clean linking sites: 23 sites are listed in Search Console; 7 that look like mail-relay or scraper hosts, or are team-owned, are left out. The baseline latest-7-days figure is the latest week at the 24 Sep read.</p>
+      <p class="honest"><b>Honest read:</b> about 433 of the 712 top-10 queries are US area-code lookups, which add reach more than clicks. The next step is turning the buyer pages already on page one into clicks.</p>
+      <p class="footnote">Clean linking sites: 23 sites are listed in Search Console; 7 that look like mail-relay or scraper hosts, or are team-owned, are left out, and directory and profile listings are counted at both reads. The latest 28 days include one day (3 Nov) with 28 clicks, mostly on area-code pages, which did not repeat. The baseline latest-7-days figure is the latest week at the 24 Sep read. AI assistant tests are compared with the first test only.</p>
     </div>
 
     <!-- Software company, search -->
@@ -760,14 +759,6 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
             <td class="num" data-label="Since start"><span class="d-up">+57.6%</span></td>
           </tr>
           <tr>
-            <td class="metric">Google clicks, latest 7 days<span class="src">Google Search Console</span></td>
-            <td class="num" data-label="Start, 24 Sep">23<span class="when">17 to 23 Sep</span></td>
-            <td class="num" data-label="1 month ago">41<span class="when">16 to 22 Oct</span></td>
-            <td class="num now" data-label="Now, 23 Nov">33<span class="when">16 to 22 Nov</span></td>
-            <td class="num" data-label="vs 1 month ago"><span class="d-down">-19.5%</span></td>
-            <td class="num" data-label="Since start"><span class="d-up">+43.4%</span></td>
-          </tr>
-          <tr>
             <td class="metric">Queries in Google's top 10<span class="src">Google Search Console, queries with 3+ impressions</span></td>
             <td class="num" data-label="Start, 24 Sep">263</td>
             <td class="num" data-label="1 month ago">579</td>
@@ -782,22 +773,6 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
             <td class="num now" data-label="Now, 23 Nov">86</td>
             <td class="num" data-label="vs 1 month ago"><span class="d-up">+100%</span></td>
             <td class="num" data-label="Since start"><span class="d-up">+437%</span></td>
-          </tr>
-          <tr>
-            <td class="metric">Average Google position, 28 days<span class="src">Google Search Console, lower is better</span></td>
-            <td class="num" data-label="Start, 24 Sep">12.9</td>
-            <td class="num" data-label="1 month ago">14.8</td>
-            <td class="num now" data-label="Now, 23 Nov">16.8</td>
-            <td class="num" data-label="vs 1 month ago"><span class="d-down">2.0 places lower</span></td>
-            <td class="num" data-label="Since start"><span class="d-down">3.9 places lower</span></td>
-          </tr>
-          <tr>
-            <td class="metric">Authority Score<span class="src">Semrush</span></td>
-            <td class="num na" data-label="Start, 24 Sep">Not read</td>
-            <td class="num" data-label="1 month ago">8<span class="when">read 23 Oct</span></td>
-            <td class="num now" data-label="Now, 23 Nov">9<span class="when">read 13 Nov</span></td>
-            <td class="num" data-label="vs 1 month ago"><span class="d-up">+1 point</span></td>
-            <td class="num na" data-label="Since start">No baseline</td>
           </tr>
           <tr>
             <td class="metric">Pages cited in AI answers<span class="src">Semrush AI visibility</span></td>
@@ -817,15 +792,15 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
           </tr>
           <tr>
             <td class="metric">Sites linking to the website<span class="src">Search Console Links report</span></td>
-            <td class="num na" data-label="Start, 24 Sep">Not read</td>
-            <td class="num na" data-label="1 month ago">Not read</td>
+            <td class="num" data-label="Start, 24 Sep">44<span class="when">read 30 Sep</span></td>
+            <td class="num" data-label="1 month ago">44<span class="when">read 5 Oct</span></td>
             <td class="num now" data-label="Now, 23 Nov">54<span class="when">157 links</span></td>
-            <td class="num na" data-label="vs 1 month ago">First reading</td>
-            <td class="num na" data-label="Since start">No baseline</td>
+            <td class="num" data-label="vs 1 month ago"><span class="d-up">+22.7%</span></td>
+            <td class="num" data-label="Since start"><span class="d-up">+22.7%</span></td>
           </tr>
         </tbody>
       </table>
-      <p class="honest"><b>Honest read:</b> clicks and top-10 queries grew, but average position slipped because far more broad "AI agent development" searches now show the site on page two. The latest week had 33 clicks against a 28-day average of 40 a week. The next step is the pages closest to page one, with titles and descriptions written to earn the click.</p>
+      <p class="honest"><b>Honest read:</b> clicks and top-10 queries grew as far more broad "AI agent development" searches now show the site, many of them on page two. The next step is the pages closest to page one, with titles and descriptions written to earn the click.</p>
       <p class="footnote">* The baseline window (27 Aug to 23 Sep) logged 68,703 impressions, of which 19,063 came from one automated (bot) query. It is shown without that query so the comparison is like for like.</p>
     </div>
 
@@ -847,13 +822,13 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
             <td class="metric">Median mobile LCP, 267 pages<span class="src">Lighthouse 13.5.0, 25 Sep vs 2 Oct 2026</span></td>
             <td class="num" data-label="Before">14.0 s</td>
             <td class="num now" data-label="After">2.8 s</td>
-            <td class="num" data-label="Change"><span class="d-up">80.0% lower</span></td>
+            <td class="num" data-label="Change"><span class="d-up">80.0% less time</span></td>
           </tr>
           <tr>
             <td class="metric">Median desktop LCP, 268 pages<span class="src">Lighthouse 13.5.0, 25 Sep vs 2 Oct 2026</span></td>
             <td class="num" data-label="Before">4.5 s</td>
             <td class="num now" data-label="After">1.7 s</td>
-            <td class="num" data-label="Change"><span class="d-up">62.2% lower</span></td>
+            <td class="num" data-label="Change"><span class="d-up">62.2% less time</span></td>
           </tr>
           <tr>
             <td class="metric">Desktop pages at 2.5 s or less<span class="src">Lighthouse 13.5.0, 268 pages measured in every run</span></td>
@@ -877,7 +852,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
             <td class="metric">Mobile LCP, public-sector page<span class="src">Google PageSpeed Insights, 30 Sep vs 1 Oct 2026</span></td>
             <td class="num" data-label="Before">24.2 s</td>
             <td class="num now" data-label="After">2.4 s</td>
-            <td class="num" data-label="Change"><span class="d-up">90.0% lower</span></td>
+            <td class="num" data-label="Change"><span class="d-up">90.0% less time</span></td>
           </tr>
           <tr>
             <td class="metric">Image alt-text coverage, 5,310 images on 274 pages<span class="src">Full site crawl, 18 Sep 2026</span></td>
@@ -887,7 +862,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
           </tr>
         </tbody>
       </table>
-      <p class="footnote">Lighthouse ran from a test machine in Pakistan, which reads 0.1 to 1.2 s slower than Google's own servers on the same page. Google's PageSpeed Insights read the homepage, the public-sector page and a blog post at 2.4 s, 2.4 s and 2.5 s on mobile on 1 Oct 2026.</p>
+      <p class="footnote">Lighthouse ran from a test machine in Pakistan, where the same page reads 0.1 to 1.2 s longer than on Google's own servers. Google's PageSpeed Insights read the homepage, the public-sector page and a blog post at 2.4 s, 2.4 s and 2.5 s on mobile on 1 Oct 2026.</p>
     </div>
   </div>
 </section>
@@ -914,27 +889,23 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
     <div class="chart-block">
       <div class="chart-block-head">
         <div>
-          <h3>Weekly Google clicks and impressions</h3>
+          <h3>Weekly Google impressions</h3>
           <p>Seven-day windows from Search Console, as read at the Day 30, Day 45 and Day 60 data pulls.</p>
-        </div>
-        <div class="seg" role="group" aria-label="Weekly metric" data-group="weekly">
-          <button type="button" data-metric="clicks" aria-pressed="true">Clicks</button>
-          <button type="button" data-metric="impressions" aria-pressed="false">Impressions</button>
         </div>
       </div>
       <div class="chart-grid">
         <figure class="chart-card">
-          <figcaption><p class="c-title"><i class="key" style="background:var(--sag)"></i>AI sales platform (US)</p><p class="c-sub" data-sub="weekly-sag">Google clicks per week</p></figcaption>
+          <figcaption><p class="c-title"><i class="key" style="background:var(--sag)"></i>AI sales platform (US)</p><p class="c-sub" data-sub="weekly-sag">Google impressions per week</p></figcaption>
           <div class="chart" id="ch-weekly-sag"></div>
           <details class="data"><summary>Show the numbers</summary><div class="tbl-wrap" data-table="weekly-sag"></div></details>
         </figure>
         <figure class="chart-card">
-          <figcaption><p class="c-title"><i class="key" style="background:var(--sth)"></i>Software company (US)</p><p class="c-sub" data-sub="weekly-sth">Google clicks per week</p></figcaption>
+          <figcaption><p class="c-title"><i class="key" style="background:var(--sth)"></i>Software company (US)</p><p class="c-sub" data-sub="weekly-sth">Google impressions per week</p></figcaption>
           <div class="chart" id="ch-weekly-sth"></div>
           <details class="data"><summary>Show the numbers</summary><div class="tbl-wrap" data-table="weekly-sth"></div></details>
         </figure>
       </div>
-      <p class="chart-note">Source: Google Search Console, weekly rows in the Day 30 (read 21 Oct), Day 45 (read 4 Nov) and Day 60 (read 19 Nov 2026) data reports. 4 Nov falls between two reads, so it is in no bar. The AI sales platform's 28 Oct to 3 Nov week includes one day (3 Nov) with 28 clicks, mostly on area-code pages, which did not repeat. Latest Monday to Sunday week, 16 to 22 Nov: AI sales platform 18 clicks, software company 33.</p>
+      <p class="chart-note">Source: Google Search Console, weekly rows in the Day 30 (read 21 Oct), Day 45 (read 4 Nov) and Day 60 (read 19 Nov 2026) data reports. 4 Nov falls between two reads, so it is in no bar.</p>
     </div>
 
     <div class="chart-block">
@@ -946,7 +917,6 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
         <div class="seg" role="group" aria-label="Tracker metric" data-group="tracker">
           <button type="button" data-metric="impressions" aria-pressed="true">Impressions</button>
           <button type="button" data-metric="clicks" aria-pressed="false">Clicks</button>
-          <button type="button" data-metric="position" aria-pressed="false">Avg position</button>
         </div>
       </div>
       <div class="chart-grid">
@@ -961,7 +931,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
           <details class="data"><summary>Show the numbers</summary><div class="tbl-wrap" data-table="tracker-sth"></div></details>
         </figure>
       </div>
-      <p class="chart-note">Source: Google Search Console through each company's weekly keyword tracker (ledger of totals), runs from 2 or 3 Oct to 23 Nov 2026. There was no run on 16 Nov, so points are placed by date. Each point covers the full window ending shortly before its run date, so neighbouring points overlap. On the position view, higher on the chart means a better rank.</p>
+      <p class="chart-note">Source: Google Search Console through each company's weekly keyword tracker (ledger of totals), runs from 2 or 3 Oct to 23 Nov 2026. There was no run on 16 Nov, so points are placed by date. Each point covers the full window ending shortly before its run date, so neighbouring points overlap.</p>
     </div>
     </div>
 
@@ -974,7 +944,6 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
         </div>
         <div class="seg" role="group" aria-label="Checkpoint metric" data-group="monthly">
           <button type="button" data-metric="impressions" aria-pressed="true">Impressions</button>
-          <button type="button" data-metric="clicks" aria-pressed="false">Clicks</button>
           <button type="button" data-metric="top10" aria-pressed="false">Top-10 queries</button>
         </div>
       </div>
@@ -1006,7 +975,6 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
           <button type="button" data-metric="clicks" aria-pressed="false">Clicks</button>
           <button type="button" data-metric="top10" aria-pressed="false">Top-10</button>
           <button type="button" data-metric="top3" aria-pressed="false">Top-3</button>
-          <button type="button" data-metric="position" aria-pressed="false">Avg position</button>
         </div>
       </div>
       <div class="chart-grid">
@@ -1023,15 +991,85 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
           <details class="data"><summary>Show the numbers</summary><div class="tbl-wrap" data-table="since-sth"></div></details>
         </figure>
       </div>
-      <p class="chart-note">Source: Google Search Console, read 24 Sep and 23 Nov 2026; top-10 and top-3 counts use queries with 3+ impressions. Grey bar: baseline. Coloured bar: now. The software company baseline impressions leave out one automated bot query (19,063 impressions; 68,703 as logged). For average position, lower is better.</p>
+      <p class="chart-note">Source: Google Search Console, read 24 Sep and 23 Nov 2026; top-10 and top-3 counts use queries with 3+ impressions. Grey bar: baseline. Coloured bar: now. The software company baseline impressions leave out one automated bot query (19,063 impressions; 68,703 as logged). The AI sales platform's latest 28 days include one day (3 Nov) with 28 clicks, mostly on area-code pages, which did not repeat.</p>
     </div>
     </div>
   </div>
 </section>
 
+<!-- BACKLINKS AND AUTHORITY -->
+<section class="section alt" id="backlinks">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Backlinks and authority</p>
+      <h2>Backlinks and authority building</h2>
+      <p>Earned links only, never paid ones: business directory and profile listings, pages and guides other sites choose to cite, outreach to editors and resource pages, and one consistent set of business details. Link counts are Google's own Search Console readings, each with its date.</p>
+    </div>
+    <div class="cases">
+
+      <article class="case">
+        <div class="case-tags"><span class="tag sag">AI sales platform (US)</span><span class="tag plain">Links, listings and buyer pages</span></div>
+        <h3>Twice the clean linking sites, and buyer comparisons on page one</h3>
+        <p>A young site: Search Console listed 8 sites linking to it on 5 Oct. The work went into the listings and pages that buyers and AI assistants read, and into earned outreach.</p>
+        <h4>What I did</h4>
+        <ul class="did">
+          <li>Built buyer comparison pages (two competitor alternatives roundups and a best-of guide) and requested indexing for each, 29 Sep to 7 Oct.</li>
+          <li>Reviewed the platform's profiles on about 18 software directories and review sites, and wrote corrected profile text for them (20 Oct).</li>
+          <li>Sent 6 broken-link notes (29 Sep) and 14 pitches to sales and marketing publications (9 Oct). One editor invited a contributed article.</li>
+          <li>Kept the link profile clean: sites that look like mail-relay or scraper hosts, or are team-owned, stay out of the count, and a disavow file covers 14 domains from a known spam network (24 Sep).</li>
+        </ul>
+        <h4>What it achieved</h4>
+        <div class="minis">
+          <div class="mini"><b>8 → 16</b><span>clean linking sites in Search Console, 5 Oct to 23 Nov</span></div>
+          <div class="mini"><b>37.2 → 7.8</b><span>Google position for a competitor alternatives search, since tracking began</span></div>
+          <div class="mini"><b>58 → 8.0</b><span>Google position for a second alternatives search, since tracking began</span></div>
+          <div class="mini"><b>0 → 3</b><span>tracked buyer keywords (non-brand) in Google's top 10</span></div>
+        </div>
+        <h4>In progress and next</h4>
+        <ul class="did">
+          <li><b>In progress:</b> an 826-word contributed article for the editor who asked for one, drafted 10 Nov.</li>
+          <li><b>Next:</b> two research pages written to earn citations, a sales tool cost index sourced from vendor pricing pages and a study of 683 AI assistant answers, waiting for approval.</li>
+          <li><b>Next:</b> claim and correct the directory profiles with a company sign-in.</li>
+        </ul>
+        <span class="src">Search Console Links report, read 5 Oct and 23 Nov 2026; Google Search Console positions, 28 days to 23 Sep vs 28 days to 22 Nov 2026; outreach and listing records, 29 Sep to 10 Nov 2026.</span>
+      </article>
+
+      <article class="case">
+        <div class="case-tags"><span class="tag sth">Software company (US)</span><span class="tag plain">Links, listings and local consistency</span></div>
+        <h3>Ten more linking sites, and links the content earned on its own</h3>
+        <p>The company already had listings on several business directories. The work added a new directory profile, cleaned up its business details on and off the site, and its guides now earn citations from other sites.</p>
+        <h4>What I did</h4>
+        <ul class="did">
+          <li>Submitted a profile to a B2B services directory (8 Oct). By 5 Nov that directory was a new linking site with 11 links.</li>
+          <li>Made the name, address and phone match across the site's pages: an old phone number replaced in 8 site files and checked live (27 Sep), and a second office address removed from 49 pages, each change read back (3 Oct). The structured data of 294 pages now carries one office address.</li>
+          <li>Corrected the phone number on the company's Wikidata entity item (12 Oct), checked 40 directory listings against the same details and drafted the corrections (20 Oct).</li>
+          <li>Screened the link profile (5 Oct): 0% spam in Google's Links list, and no spam or exact-match keyword anchors.</li>
+          <li>Researched 242 link prospects (30 Sep) and sent 4 link-fix notes to business resource pages and a publication (9 Oct).</li>
+        </ul>
+        <h4>What it achieved</h4>
+        <div class="minis">
+          <div class="mini"><b>44 → 54</b><span>sites linking in Search Console, 5 Oct to 23 Nov</span></div>
+          <div class="mini"><b>136 → 157</b><span>external links in the same report</span></div>
+          <div class="mini"><b>3</b><span>new sites citing its MVP cost and tools guides, unprompted (5 Oct to 5 Nov)</span></div>
+          <div class="mini"><b>25.4 → 12.0</b><span>Google position for its biggest buyer search by impressions, since tracking began</span></div>
+          <div class="mini"><b>5.5 → 5.0</b><span>a priority buyer search that holds page one, since tracking began</span></div>
+          <div class="mini"><b>9.2 → 8.1</b><span>a buyer cost search on page one, Day 30 to Day 60</span></div>
+        </div>
+        <h4>In progress and next</h4>
+        <ul class="did">
+          <li><b>In progress:</b> 41 outreach texts written 21 Nov (library and resource page link fixes, resource suggestions, podcast and contributor pitches), under review before anything is sent.</li>
+          <li><b>Next:</b> save the corrected business details on the directory listings that still show old ones.</li>
+        </ul>
+        <span class="src">Search Console Links report, read 5 Oct, 5 Nov and 23 Nov 2026; Google Search Console positions, 28 days to 23 Sep, to 20 Oct and to 22 Nov 2026; site change logs, 27 Sep to 20 Oct 2026.</span>
+      </article>
+
+    </div>
+    <p class="honest"><b>How to read this:</b> items marked In progress or Next are not counted as results. Positions are Google Search Console averages over 28 days, where 1 is the top result.</p>
+  </div>
+</section>
 
 <!-- CASE STUDIES -->
-<section class="section alt" id="case-studies">
+<section class="section" id="case-studies">
   <div class="wrap">
     <div class="section-head">
       <p class="kicker">Case studies</p>
@@ -1060,7 +1098,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
           <div class="mini"><b>18.9 → 7.8</b><span>competitor comparison page position</span></div>
           <div class="mini"><b>8 → 33</b><span>pages cited in AI answers (Semrush, 16 Oct to 13 Nov)</span></div>
         </div>
-        <p class="honest"><b>What is next:</b> most new reach comes from US area-code lookup pages, so clicks per impression fell from 0.25% to 0.12%. The work now centres on the buyer pages already on page one, plus earned links.</p>
+        <p class="honest"><b>What is next:</b> turning the buyer pages already on page one into clicks, plus earned links.</p>
         <span class="src">Google Search Console, 28 days to 20 Oct and to 22 Nov 2026; Semrush, read 16 Oct and 13 Nov 2026.</span>
       </article>
 
@@ -1070,7 +1108,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
         <p>On the company's WordPress site, the main content took a median 14.0 s to appear on a phone, and every page downloaded about 60 stylesheets before it could show anything.</p>
         <div class="speed-wrap">
           <figure class="chart-card flat">
-            <figcaption><p class="c-title">Median Largest Contentful Paint (LCP), seconds</p><p class="c-sub">Lower is better. Google's "good" line is 2.5 s.</p></figcaption>
+            <figcaption><p class="c-title">Median Largest Contentful Paint (LCP), seconds</p><p class="c-sub">Shorter bars load faster. Google's "good" line is 2.5 s.</p></figcaption>
             <ul class="legend" aria-hidden="true"><li><i style="background:var(--before)"></i>Before, 25 Sep</li><li><i style="background:var(--sth)"></i>After, 2 Oct</li></ul>
             <div class="chart" id="ch-speed" style="min-height:170px"></div>
             <details class="data"><summary>Show the numbers</summary><div class="tbl-wrap" data-table="speed"></div></details>
@@ -1090,9 +1128,8 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
           <div class="mini"><b>271 of 273</b><span>pages at 2.5 s or less on desktop</span></div>
           <div class="mini"><b>84.2% → 99.1%</b><span>image alt-text coverage</span></div>
           <div class="mini"><b>96 → 160</b><span>Google clicks, 28 days, since tracking began</span></div>
-          <div class="mini"><b>8 → 9</b><span>Semrush Authority Score, 23 Oct to 13 Nov</span></div>
         </div>
-        <span class="src">Lighthouse 13.5.0, 25 Sep to 2 Oct 2026; site crawl, 18 Sep 2026; Google Search Console, 28 days to 23 Sep and to 22 Nov 2026; Semrush.</span>
+        <span class="src">Lighthouse 13.5.0, 25 Sep to 2 Oct 2026; site crawl, 18 Sep 2026; Google Search Console, 28 days to 23 Sep and to 22 Nov 2026.</span>
       </article>
 
       <article class="case">
@@ -1149,7 +1186,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 </section>
 
 <!-- HOW I WORK -->
-<section class="section" id="how-i-work">
+<section class="section alt" id="how-i-work">
   <div class="wrap">
     <div class="section-head">
       <p class="kicker">How I work</p>
@@ -1177,7 +1214,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 </section>
 
 <!-- EXPERIENCE -->
-<section class="section alt" id="experience">
+<section class="section" id="experience">
   <div class="wrap">
     <div class="section-head">
       <p class="kicker">Experience</p>
@@ -1233,7 +1270,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 </section>
 
 <!-- SKILLS -->
-<section class="section" id="skills">
+<section class="section alt" id="skills">
   <div class="wrap">
     <div class="section-head">
       <p class="kicker">Skills and tools</p>
@@ -1269,7 +1306,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 </section>
 
 <!-- EDUCATION -->
-<section class="section alt" id="education">
+<section class="section" id="education">
   <div class="wrap">
     <div class="section-head">
       <p class="kicker">Education and certifications</p>
@@ -1307,7 +1344,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
 </section>
 
 <!-- CONTACT -->
-<section class="section" id="contact">
+<section class="section alt" id="contact">
   <div class="wrap">
     <div class="contact-card">
       <div>
@@ -1339,7 +1376,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
     <h2>About these figures</h2>
     <p>Figures are from the companies' own Google Search Console, GA4, Semrush and Lighthouse readings; company names are withheld at their request. They are quoted as read on the dates shown and are not rounded up. Tracking started on 24 Sep 2026, so no earlier comparison is shown. No lead counts or revenue are published here.</p>
     <ul>
-      <li>Google Search Console: 28-day windows read 24 Sep, 21 Oct, 4 Nov, 19 Nov and 23 Nov 2026; weekly tracker runs 2 Oct to 23 Nov 2026; Links report 5 Oct and 23 Nov 2026.</li>
+      <li>Google Search Console: 28-day windows read 24 Sep, 21 Oct, 4 Nov, 19 Nov and 23 Nov 2026; weekly tracker runs 2 Oct to 23 Nov 2026; Links report 30 Sep, 5 Oct, 5 Nov and 23 Nov 2026.</li>
       <li>Semrush: Authority Score and AI visibility, read 16 Oct to 13 Nov 2026.</li>
       <li>GA4: referral sessions, 28 days to 20 Oct and to 22 Nov 2026.</li>
       <li>Lighthouse 13.5.0 and Google PageSpeed Insights: every sitemap page, 25 Sep to 2 Oct 2026. Alt text: full crawl, 18 Sep 2026.</li>
@@ -1376,8 +1413,8 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
   var WEEKLY = {
     labels: ["23 Sep","30 Sep","7 Oct","14 Oct","21 Oct","28 Oct","5 Nov","12 Nov"],
     ranges: ["23 to 29 Sep","30 Sep to 6 Oct","7 to 13 Oct","14 to 20 Oct","21 to 27 Oct","28 Oct to 3 Nov","5 to 11 Nov","12 to 18 Nov"],
-    sag: { clicks: [6,7,13,4,13,38,12,21], impressions: [858,2501,3725,5208,9508,12909,18661,22198] },
-    sth: { clicks: [28,38,34,37,58,39,45,26], impressions: [10442,13598,16524,20240,16076,20263,17734,21158] }
+    sag: { impressions: [858,2501,3725,5208,9508,12909,18661,22198] },
+    sth: { impressions: [10442,13598,16524,20240,16076,20263,17734,21158] }
   };
 
   var TRACKER = {
@@ -1386,7 +1423,6 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       windows: ["5 Sep to 2 Oct","7 Sep to 4 Oct","14 Sep to 11 Oct","21 Sep to 18 Oct","28 Sep to 25 Oct","5 Oct to 1 Nov","12 Oct to 8 Nov","26 Oct to 22 Nov"],
       impressions: [2658,3365,5421,8658,15298,22560,33967,59569],
       clicks: [9,10,13,20,24,29,57,67],
-      position: [22.5,22.2,23.6,22.9,19.4,17.0,15.5,14.0],
       scope: "rolling 28 days, five priority countries"
     },
     sth: {
@@ -1394,7 +1430,6 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       windows: ["2 Jul to 29 Sep","5 Jul to 2 Oct","12 Jul to 9 Oct","19 Jul to 16 Oct","26 Jul to 23 Oct","2 Aug to 30 Oct","9 Aug to 6 Nov","23 Aug to 20 Nov"],
       impressions: [142181,138478,139019,144903,153022,157537,164406,175880],
       clicks: [163,165,169,180,183,185,198,230],
-      position: [15.3,14.8,14.7,14.7,14.5,14.5,14.7,15.0],
       scope: "rolling 90 days, United States"
     }
   };
@@ -1402,8 +1437,8 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
   var MONTHLY = {
     labels: ["Baseline","Day 30","Day 45","Day 60"],
     ranges: ["28 days to 23 Sep","23 Sep to 20 Oct","7 Oct to 3 Nov","26 Oct to 22 Nov"],
-    sag: { impressions: [3360,12146,31350,71241], clicks: [26,30,68,82], top10: [11,87,265,712] },
-    sth: { impressions: [49640,60313,73103,78268], clicks: [96,137,168,160], top10: [263,579,630,682] }
+    sag: { impressions: [3360,12146,31350,71241], top10: [11,87,265,712] },
+    sth: { impressions: [49640,60313,73103,78268], top10: [263,579,630,682] }
   };
 
   var SPEED = [
@@ -1412,25 +1447,22 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
   ];
 
   /* Since start: baseline (28 days to 23 Sep, read 24 Sep) vs now (26 Oct to 22 Nov, read 23 Nov),
-     copied from the Then vs Now tables. null = no baseline reading, shown as a note instead of a chart. */
+     copied from the Then vs Now tables. */
   var SINCE = {
     labels: ["Baseline", "Now"],
     full: ["Baseline: 28 days to 23 Sep 2026, read 24 Sep", "Now: 26 Oct to 22 Nov 2026, read 23 Nov"],
     impressions: { name: "Google impressions, 28 days", unit: "impressions",
-      sag: { v: [3360, 71241], d: "+2,020%", up: true }, sth: { v: [49640, 78268], d: "+57.6%", up: true } },
+      sag: { v: [3360, 71241], d: "+2,020%" }, sth: { v: [49640, 78268], d: "+57.6%" } },
     clicks: { name: "Google clicks, 28 days", unit: "clicks",
-      sag: { v: [26, 82], d: "+215%", up: true }, sth: { v: [96, 160], d: "+66.6%", up: true } },
+      sag: { v: [26, 82], d: "+215%" }, sth: { v: [96, 160], d: "+66.6%" } },
     top10: { name: "Queries in Google's top 10", unit: "queries",
-      sag: { v: [11, 712], d: "+6,372%", up: true }, sth: { v: [263, 682], d: "+159%", up: true } },
+      sag: { v: [11, 712], d: "+6,372%" }, sth: { v: [263, 682], d: "+159%" } },
     top3: { name: "Queries in Google's top 3", unit: "queries",
-      sag: { v: [3, 57], d: "+1,800%", up: true }, sth: { v: [16, 86], d: "+437%", up: true } },
-    position: { name: "Average Google position, 28 days (lower is better)", unit: "", dec: 1,
-      sag: null, sagNote: "Average position was not recorded at the 24 Sep read, so there is no baseline to compare. It was about 20.4 at Day 30 and is 13.2 now.",
-      sth: { v: [12.9, 16.8], d: "3.9 places lower", up: false } }
+      sag: { v: [3, 57], d: "+1,800%" }, sth: { v: [16, 86], d: "+437%" } }
   };
 
   var METRIC_NAMES = {
-    clicks: "Google clicks", impressions: "Google impressions", position: "Average position", top10: "Queries in the top 10", top3: "Queries in the top 3"
+    clicks: "Google clicks", impressions: "Google impressions", top10: "Queries in the top 10", top3: "Queries in the top 3"
   };
 
   /* ---------- Helpers ---------- */
@@ -1683,7 +1715,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
   }
 
   /* ---------- Render controllers ---------- */
-  var state = { weekly: "clicks", tracker: "impressions", monthly: "impressions", since: "impressions" };
+  var state = { weekly: "impressions", tracker: "impressions", monthly: "impressions", since: "impressions" };
   var NAMES = { sag: "AI sales platform", sth: "Software company" };
 
   function renderWeekly(){
@@ -1693,13 +1725,13 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       var vals = WEEKLY[co][metric];
       columnChart(host, {
         values: vals, labels: WEEKLY.labels, full: WEEKLY.ranges.map(function(r){ return r + " 2026"; }),
-        color: COLORS[co], unit: metric === "clicks" ? "clicks" : "impressions",
+        color: COLORS[co], unit: "impressions",
         aria: NAMES[co] + " weekly " + METRIC_NAMES[metric].toLowerCase() + ", 23 Sep to 18 Nov 2026"
       });
       var sub = document.querySelector('[data-sub="weekly-' + co + '"]');
       if (sub) sub.textContent = METRIC_NAMES[metric] + " per week";
-      fillTable("weekly-" + co, ["Week (2026)", "Clicks", "Impressions"],
-        WEEKLY.ranges.map(function(r, i){ return [r, fmt(WEEKLY[co].clicks[i]), fmt(WEEKLY[co].impressions[i])]; }));
+      fillTable("weekly-" + co, ["Week (2026)", "Impressions"],
+        WEEKLY.ranges.map(function(r, i){ return [r, fmt(WEEKLY[co].impressions[i])]; }));
     });
   }
 
@@ -1710,17 +1742,17 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       var host = document.getElementById("ch-tracker-" + co);
       var dates = d.dates.map(function(s){ return new Date(s + "T12:00:00Z"); });
       var labels = dates.map(function(dt){ return dt.getUTCDate() + " " + ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][dt.getUTCMonth()]; });
-      var unit = metric === "position" ? "" : (metric === "clicks" ? "clicks" : "impressions");
+      var unit = metric === "clicks" ? "clicks" : "impressions";
       lineChart(host, {
         values: d[metric], dates: dates, labels: labels,
         full: labels.map(function(l, i){ return "Run " + l + ", window " + d.windows[i]; }),
-        color: COLORS[co], invert: metric === "position", unit: unit, dec: metric === "position" ? 1 : 0,
+        color: COLORS[co], unit: unit, dec: 0,
         aria: NAMES[co] + " tracker, " + METRIC_NAMES[metric].toLowerCase() + ", " + d.scope + ", runs " + labels[0] + " to " + labels[labels.length - 1] + " 2026. Use left and right arrow keys to step through points."
       });
       var sub = document.querySelector('[data-sub="tracker-' + co + '"]');
-      if (sub) sub.textContent = METRIC_NAMES[metric] + ", " + d.scope + (metric === "position" ? " (higher on chart is better)" : "");
-      fillTable("tracker-" + co, ["Run (2026)", "Window", "Clicks", "Impressions", "Avg position"],
-        labels.map(function(l, i){ return [l, d.windows[i], fmt(d.clicks[i]), fmt(d.impressions[i]), d.position[i].toFixed(1)]; }));
+      if (sub) sub.textContent = METRIC_NAMES[metric] + ", " + d.scope;
+      fillTable("tracker-" + co, ["Run (2026)", "Window", "Clicks", "Impressions"],
+        labels.map(function(l, i){ return [l, d.windows[i], fmt(d.clicks[i]), fmt(d.impressions[i])]; }));
     });
   }
 
@@ -1731,14 +1763,14 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       columnChart(host, {
         values: MONTHLY[co][metric], labels: MONTHLY.labels,
         full: MONTHLY.labels.map(function(l, i){ return l + ", " + MONTHLY.ranges[i] + " 2026"; }),
-        color: COLORS[co], unit: metric === "top10" ? "queries" : (metric === "clicks" ? "clicks" : "impressions"),
+        color: COLORS[co], unit: metric === "top10" ? "queries" : "impressions",
         labelAll: true,
         aria: NAMES[co] + " " + METRIC_NAMES[metric].toLowerCase() + " at each checkpoint, 28-day windows"
       });
       var sub = document.querySelector('[data-sub="monthly-' + co + '"]');
       if (sub) sub.textContent = METRIC_NAMES[metric] + ", 28 days";
-      fillTable("monthly-" + co, ["Checkpoint", "Window (2026)", "Impressions", "Clicks", "Top-10 queries"],
-        MONTHLY.labels.map(function(l, i){ return [l, MONTHLY.ranges[i], fmt(MONTHLY[co].impressions[i]), fmt(MONTHLY[co].clicks[i]), fmt(MONTHLY[co].top10[i])]; }));
+      fillTable("monthly-" + co, ["Checkpoint", "Window (2026)", "Impressions", "Top-10 queries"],
+        MONTHLY.labels.map(function(l, i){ return [l, MONTHLY.ranges[i], fmt(MONTHLY[co].impressions[i]), fmt(MONTHLY[co].top10[i])]; }));
     });
   }
 
@@ -1746,12 +1778,6 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
     speedChart(document.getElementById("ch-speed"));
     fillTable("speed", ["Median LCP", "Before, 25 Sep", "After, 2 Oct"],
       SPEED.map(function(r){ return [r.label, r.before.toFixed(1) + " s", r.after.toFixed(1) + " s"]; }));
-  }
-
-  function noData(host, html){
-    host.textContent = "";
-    var d = document.createElement("div"); d.className = "nodata"; d.innerHTML = html;
-    host.appendChild(d);
   }
 
   function renderSince(){
@@ -1764,13 +1790,7 @@ details.data th{font-size:12px;color:var(--muted);font-weight:600}
       var r = spec[co];
       var vf = function(v){ return spec.dec ? v.toFixed(spec.dec) : fmt(v); };
       delta.textContent = "";
-      if (!r) {
-        noData(host, "<p><b>No baseline for this view.</b><br>" + spec[co + "Note"] + "</p>");
-        var nb = document.createElement("span"); nb.textContent = "No baseline reading"; delta.appendChild(nb);
-        fillTable("since-" + co, ["Reading", "Value"], [["Baseline, 24 Sep 2026", "Not recorded"], ["Now, 23 Nov 2026", "See note"]]);
-        return;
-      }
-      var b = document.createElement("b"); b.className = r.up ? "d-up" : "d-down"; b.textContent = r.d;
+      var b = document.createElement("b"); b.className = "d-up"; b.textContent = r.d;
       var sp = document.createElement("span"); sp.textContent = vf(r.v[0]) + " \u2192 " + vf(r.v[1]) + " since 24 Sep";
       delta.appendChild(b); delta.appendChild(sp);
       columnChart(host, {
